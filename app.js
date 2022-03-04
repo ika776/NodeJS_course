@@ -13,6 +13,7 @@ clearInterval();*/
 // console.log(module);
 
 var logger= require('./logger')
-console.log(logger);
-console.log('message');
-console.log.log(message);
+// console.log(logger);
+// console.log('message');
+// console.log.log(message);
+ console.log(arguments);
