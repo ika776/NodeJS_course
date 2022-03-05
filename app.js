@@ -38,11 +38,23 @@ clearInterval();*/
 // console.log(`Free Memory : ${freeMemory}`);
 
 //File System
-const fs = require('fs');
-const files =fs.readdirSync('./')
-console.log(files);
+// const fs = require('fs');
+// const files =fs.readdirSync('./')
+// console.log(files);
 
-fs.readdir('./', function (err,file){
-    if(err) console.log('Error ',err);
-    else console.log('Results', file);
+// fs.readdir('./', function (err,file){
+//     if(err) console.log('Error ',err);
+//     else console.log('Results', file);
+// })
+
+//Event Module
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
+
+//Register a Listener
+emitter.on('Message logged', function(){
+    console.log('Listener called');
 })
+
+//Raise Event
+emitter.emit('Message logged')
