@@ -20,7 +20,18 @@ clearInterval();*/
 
 
 //Path Module
-const path = require('path')
-var pathObj= path.parse(__filename);
-console.log(pathObj);
+// const path = require('path')
+// var pathObj= path.parse(__filename);
+// console.log(pathObj);
+
+//OS Modules
+const os = require('os');
+
+var totalMemory = os.totalmem();
+var freeMemory = os.freemem();
+
+console.log('Total memory : ' + totalMemory);
+
+//Template string
+console.log(`Free Memory : ${freeMemory}`);
 
