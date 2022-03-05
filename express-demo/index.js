@@ -46,6 +46,14 @@ app.put('/api/courses/:id',(req,res)=>{
     res.send(course)
 })
 
+//Handling DELETE Request
+app.delete('/api/courses/:id',(req,res)=>{
+    const course = courses.find( c => c.id === parseInt(req.params.id));
+    const index = courses.indexOf(course);
+    courses.splice(index,1)
+    res.send(`${course.name} success deleted`)
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
