@@ -47,14 +47,28 @@ clearInterval();*/
 //     else console.log('Results', file);
 // })
 
-//Event Module
+// //Event Module
+// const EventEmitter = require('events');
+// const emitter = new EventEmitter();
+
+// //Register a Listener
+// emitter.on('Message logged', function(){
+//     console.log('Listener called');
+// })
+
+// //Raise Event
+// emitter.emit('Message logged')
+
+
+//Extending EventEmitter
 const EventEmitter = require('events');
-const emitter = new EventEmitter();
+const Logger =require('./logger')
+const logger = new Logger();
 
 //Register a Listener
-emitter.on('Message logged', function(){
-    console.log('Listener called');
+logger.on('Message logged', (arg)=>{
+    console.log('Listener called', arg);
 })
 
 //Raise Event
-emitter.emit('Message logged')
+logger.log('Message logged')
