@@ -15,6 +15,8 @@ const courses =[
     {id:3, name:'course3'}
 ];
 
+//Handling HTTP GET Request
+
 //get all data
 app.get('/api/courses', (req,res)=> {
     res.send(courses);
@@ -26,6 +28,18 @@ app.get('/api/courses/:id', (req,res)=> {
     if(!course) res.status(404).send('The course is not available');
     else res.send(course);
 })
+
+//Handling HTTP POST Request
+app.post('/api/course',(req,res)=>{
+    const course={
+        id:courses.length+1,
+        name: req.body.name
+    }
+    courses.push(course)
+    res.send(course)
+})
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
