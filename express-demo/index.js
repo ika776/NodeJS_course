@@ -30,7 +30,7 @@ app.get('/api/courses/:id', (req,res)=> {
 })
 
 //Handling HTTP POST Request
-app.post('/api/course',(req,res)=>{
+app.post('/api/courses',(req,res)=>{
     const course={
         id:courses.length+1,
         name: req.body.name
@@ -39,6 +39,12 @@ app.post('/api/course',(req,res)=>{
     res.send(course)
 })
 
+//Handling PUT Request
+app.put('/api/courses/:id',(req,res)=>{
+    const course = courses.find( c => c.id === parseInt(req.params.id));
+    course.name = req.body.name
+    res.send(course)
+})
 
 
 app.listen(port, () => {
