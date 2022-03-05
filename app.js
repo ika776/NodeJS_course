@@ -24,14 +24,21 @@ clearInterval();*/
 // var pathObj= path.parse(__filename);
 // console.log(pathObj);
 
+
+
 //OS Modules
-const os = require('os');
+// const os = require('os');
 
-var totalMemory = os.totalmem();
-var freeMemory = os.freemem();
+// var totalMemory = os.totalmem();
+// var freeMemory = os.freemem();
 
-console.log('Total memory : ' + totalMemory);
+// console.log('Total memory : ' + totalMemory);
 
-//Template string
-console.log(`Free Memory : ${freeMemory}`);
+// //Template string
+// console.log(`Free Memory : ${freeMemory}`);
+
+//File System
+const fs = require('fs');
+const files =fs.readdirSync('./')
+console.log(files);
 
