@@ -1,11 +1,37 @@
 const express = require('express');
+const logger =  require('./logger');
+const startupDebugger =require('debug')('app:startup');
+const dbDebugger =require('debug')('app:db');
+const morgan = require('morgan')
+const config = require('config')
+const pug =require('pug')
 const app = express()
 const port = 3000
 
+
+app.set('view engine','pug');
+app.set('views','./views');
+
 app.use(express.json())
+app.use(express.urlencoded());
+app.use(express.static('public'));
+
+
+//DB Work
+dbDebugger('Connected to the db...');
+
+startupDebugger('Application Name: '+ config.get('name'));
+console.log('Mail Server : '+ config.get('mail.host'));
+
+if(app.get('env') === 'development'){
+    app.use(morgan('tiny'));
+    console.log('Morgan Enabled...');
+}
+
+app.use(logger);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.render('index',{title:'My express', message:'Hello'})
 })
 
 //Handling HTTP GET Request
