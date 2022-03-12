@@ -32,7 +32,7 @@ async function notifyCustommer() {
         resolve({ 
           id: 1, 
           name: 'Mosh Hamedani', 
-          isGold: false, 
+          isGold: true, 
           email: 'email' 
         });
       }, 4000);  
